@@ -13,3 +13,17 @@ def solution(id_list, report, k):
             for reporter in value:
                 answer[order[reporter]] += 1
     return answer
+
+# 참고 해설
+# def solution(id_list, report, k):  
+#     answer = [0] * len(id_list)    
+#     reports = {x : 0 for x in id_list} # dictionary의 pythonic 한 comprehension
+    
+#     for r in set(report):  # 신고자 중복 제거
+#         reports[r.split()[1]] += 1
+
+#     for r in set(report):
+#         if reports[r.split()[1]] >= k:
+#             answer[id_list.index(r.split()[0])] += 1 #list의 index 검색
+
+#     return answer
