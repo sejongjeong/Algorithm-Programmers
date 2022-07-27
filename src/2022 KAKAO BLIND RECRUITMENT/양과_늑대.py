@@ -19,10 +19,32 @@ def solution(info, edges):
             for n in eg[p]:
                 if n not in path:
                     path.append(n)
-                    print(n, path)
                     maxSheep = max(maxSheep, dfs(sheep, wolf, n,path))
                     path.pop()
         return maxSheep
     
     answer = dfs(0,0,0,[0])
     return answer
+
+# from collections import defaultdict
+
+# answer = 0
+# def solution(info, edges):
+#     eg = defaultdict(list)
+#     for s, d in edges:
+#         eg[s].append(d)
+#     def backtraking(sheep, wolf, node, path):
+#         global answer
+#         sheep += info[node] ^ 1
+#         wolf += info[node]
+#         if sheep <= wolf:
+#             return
+#         answer = max(answer, sheep)
+#         for p in path:
+#             for n in eg[p]:
+#                 if n not in path:
+#                     path.append(n)
+#                     backtraking(sheep, wolf, n, path)
+#                     path.pop()
+#     backtraking(0,0,0,[0])
+#     return answer
